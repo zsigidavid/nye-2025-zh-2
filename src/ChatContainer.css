@@ -1,72 +1,116 @@
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 16px;
-}
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 16px;
+    }
 
-.chat-container form {
-    position: relative;
-}
+    .chat-container form {
+        position: relative;
+    }
 
-.chat-container form input {
-    width: calc(100% - 32px);
-    margin: 32px auto;
-    display: block;
-    padding: 8px 16px;
-    border-radius: 16px;
-}
+    .chat-container form input {
+        width: calc(100% - 32px);
+        margin: 32px auto;
+        display: block;
+        padding: 8px 16px;
+        border-radius: 16px;
+    }
 
-.chat-container form button {
-    position: absolute;
-    right: 4px;
-    top: 39px;
-    border-radius: 16px;
-}
+    .chat-container form button {
+        position: absolute;
+        right: 4px;
+        top: 39px;
+        border-radius: 16px;
+    }
 
-.messages {
-    display: flex;
-    flex-flow: column nowrap;
-    height: 100%;
-}
+    .messages {
+        display: flex;
+        flex-flow: column nowrap;
+        height: 100%;
+    }
 
-.messages > .message {
-    padding: 10px;
-    border-radius: 8px;
-    margin: 5px;
-    max-width: 300px;
-    width: fit-content;
-    word-wrap: break-word;
-}
+    .messages > .message {
+        padding: 10px;
+        border-radius: 8px;
+        margin: 5px;
+        max-width: 300px;
+        width: fit-content;
+        word-wrap: break-word;
+    }
 
-.assistant-feedback {
-    margin: 5px;
-}
-.assistant-feedback button {
-    margin-right: 4px;
-}
+    .assistant-feedback {
+        margin: 5px;
+    }
 
-.messages > .message.assistant {
-    background-color: #f0f0f0;
-}
 
-.messages > .message.user {
-    margin-left: auto;
-    background-color: #007bff;
-    color: white;
-}
+    .messages > .message.assistant {
+        background-color: #f0f0f0;
+    }
 
-.message {
-    padding: 8px;
-}
+    .messages > .message.user {
+        margin-left: auto;
+        background-color: #007bff;
+        color: white;
+    }
 
-.message p {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.5;
-}
+    .message {
+        padding: 8px;
+    }
 
-/* TODO: implement CSS solution here */
-/* NOTE: don't forget about the JS task */
+    .message p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    
+    .assistant-feedback button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0 4px; 
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 1;
+
+        color: transparent; 
+        text-indent: -9999px; 
+        overflow: hidden; 
+        white-space: nowrap; 
+       
+        position: relative; 
+        display: inline-block;
+        width: 1em; 
+        height: 1em; 
+    }
+
+    .assistant-feedback button::before {
+        content: ''; 
+        display: block; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-indent: 0; 
+        color: initial; 
+        text-align: center; 
+        line-height: 1; 
+        filter: grayscale(100%); 
+        transition: filter 0.3s ease; 
+    }
+
+    .assistant-feedback .like-button::before {
+        content: '\1F44D'; /* Unicode for Thumbs Up 👍 */
+    }
+
+    .assistant-feedback .dislike-button::before {
+        content: '\1F44E'; /* Unicode for Thumbs Down 👎 */
+    }
+
+    .assistant-feedback button.active::before {
+        filter: grayscale(0%); 
+    }
